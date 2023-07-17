@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="desktop-left-side">
+        <div class="branding-title">
+          <h1 class="title-branding">Immanuel Prarthana Bhawan</h1>
+          <h1 class="slogon-branding">worship planning</h1>
+        </div>
+        <div class="navigation-container">
+          <a
+            href="index.html"
+            class="single-nav"
+            style="background-color: rgb(145, 145, 145);"
+          >
+            <p class="single-nav-text">Worship Planning</p>
+            <img
+              src="blob:https://generator.yakraj.com/2a91d2d5-b3b8-4ac4-a455-937374d36a00"
+              class="nav-arrow-image"
+              alt="custom"
+            />
+          </a>
+          <a
+            href="./worshipdays.html"
+            class="single-nav"
+            style="background-color: rgb(145, 145, 145);"
+          >
+            <p class="single-nav-text">all worship days</p>
+            <img
+              src="blob:https://generator.yakraj.com/2a91d2d5-b3b8-4ac4-a455-937374d36a00"
+              class="nav-arrow-image"
+              alt="custom"
+            />
+          </a>
+          <a
+            href="./pdfiles.html"
+            class="single-nav"
+            style="background-color: rgb(145, 145, 145);"
+          >
+            <p class="single-nav-text">pdf files</p>
+            <img
+              src="blob:https://generator.yakraj.com/2a91d2d5-b3b8-4ac4-a455-937374d36a00"
+              class="nav-arrow-image"
+              alt="custom"
+            />
+          </a>
+          <a
+            href="./allsongs.html"
+            class="single-nav"
+            style="background-color: rgb(145, 145, 145);"
+          >
+            <p class="single-nav-text">all songs</p>
+            <img
+              src="blob:https://generator.yakraj.com/2a91d2d5-b3b8-4ac4-a455-937374d36a00"
+              class="nav-arrow-image"
+              alt="custom"
+            />
+          </a>
+          <a
+            href="./addsong.html"
+            class="single-nav"
+            style="background-color: rgb(50, 90, 128);"
+          >
+            <p class="single-nav-text">add plan/song</p>
+            <img
+              src="blob:https://generator.yakraj.com/2a91d2d5-b3b8-4ac4-a455-937374d36a00"
+              class="nav-arrow-image"
+              alt="custom"
+            />
+          </a>
+        </div>
+      </div>
+      <div class="division81391">
+        <!-- this is login page -->
+
+        <div class="login-form-container">
+          <div class="form">
+            <div class="title">Welcome</div>
+            <div class="subtitle">
+              Immanuel Church welcomes to admin members
+            </div>
+
+            <div class="input-container ic1">
+              <input placeholder="" type="text" class="input" id="firstname" />
+              <div class="cut"></div>
+              <label class="iLabel" for="firstname">Username</label>
+            </div>
+
+            <div class="input-container ic2">
+              <input
+                placeholder=""
+                type="password"
+                class="input"
+                id="lastname"
+              />
+              <div class="cut"></div>
+              <label class="iLabel" for="lastname">Password</label>
+            </div>
+            <button class="submit" type="text">Login</button>
+          </div>
+        </div>
+
+        <div class="vieport-nav">
+          <h1 class="title-branding">worship planning</h1>
+          <div class="viewport-nav-search">
+            <input
+              type="text"
+              class="viewport-serarch-input"
+              placeholder="Your Text"
+            /><img
+              src="blob:https://generator.yakraj.com/6af2d3de-b5c7-4bec-a429-38bca53e164a"
+              class="image55015"
+              alt="custom"
+            />
+          </div>
+        </div>
+
+        <!-- form starts from here -->
+        <form>
+          <label for="preparation">It is for Plan Prepare:</label>
+
+          <label class="container">
+            <input
+              onchange="toggleVisibility()"
+              id="preparation"
+              name="preparation"
+              type="checkbox"
+            />
+            <svg viewBox="0 0 64 64" height="2em" width="2em">
+              <path
+                d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
+                pathLength="575.0541381835938"
+                class="path"
+              ></path>
+            </svg>
+          </label>
+
+          <br />
+
+          <div class="preparation-fields hidden">
+            <label for="preparation-date">Preparation for:</label>
+            <input
+              type="date"
+              id="preparation-date"
+              name="preparation-date"
+            /><br />
+
+            <label for="prepared-file">Prepared File:</label>
+            <input
+              type="file"
+              id="prepared-file"
+              name="prepared-file"
+              accept=".pdf"
+            /><br />
+          </div>
+
+          <hr />
+          <!-- Divider -->
+
+          <h2>Add Songs</h2>
+          <div id="song-container">
+            <label for="song-name-hindi">Song Name Hindi:</label>
+            <input
+              type="text"
+              id="song-name-hindi"
+              name="song-name-hindi"
+            /><br />
+
+            <label for="song-name-hindi-english"
+              >Song Name in Hindi English:</label
+            >
+            <input
+              type="text"
+              id="song-name-hindi-english"
+              name="song-name-hindi-english"
+            /><br />
+
+            <label for="song-type">Song Type:</label>
+            <select id="song-type" name="song-type">
+              <option value="stuti">Stuti</option>
+              <option value="aaradhan">Aaradhan</option>
+              <option value="inspirational">Inspirational</option>
+              <option value="thanks-giving">Thanks Giving</option>
+              <option value="priding">Priding</option> </select
+            ><br />
+
+            <label for="song-lyrics">Song Lyrics or Chords:</label>
+            <textarea id="song-lyrics" name="song-lyrics"></textarea><br />
+          </div>
+          <div class="add-button">
+            <input
+              type="button"
+              value="Add"
+              onclick="addSong()"
+              id="add-song"
+            /><br />
+          </div>
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+    </div>
+    <script>
+      function toggleVisibility() {
+        var checkBox = document.getElementById("preparation");
+        var fields = document.getElementsByClassName("preparation-fields");
+        for (var i = 0; i < fields.length; i++) {
+          if (checkBox.checked == true) {
+            fields[i].style.display = "block";
+          } else {
+            fields[i].style.display = "none";
+          }
+        }
+      }
+
+      function addSong() {
+        var container = document.getElementById("song-container");
+
+        var songHTML = `
+                <div class="song">
+                 
+                    <label for="song-name-hindi">Song Name Hindi:</label>
+                    <input type="text" id="song-name-hindi" name="song-name-hindi"><br>
+                    <label for="song-name-hindi-english">Song Name in Hindi English:</label>
+                    <input type="text" id="song-name-hindi-english" name="song-name-hindi-english"><br>
+                    <label for="song-type">Song Type:</label>
+                    <select id="song-type" name="song-type">
+                        <option value="stuti">Stuti</option>
+                        <option value="aaradhan">Aaradhan</option>
+                        <option value="inspirational">Inspirational</option>
+                        <option value="thanks-giving">Thanks Giving</option>
+                        <option value="priding">Priding</option>
+                    </select><br>
+                    <label for="song-lyrics">Song Lyrics or Chords:</label>
+                    <textarea id="song-lyrics" name="song-lyrics"></textarea><br>
+                </div>
+            `;
+
+        container.innerHTML += songHTML;
+      }
+    </script>
+  </body>
+</html>

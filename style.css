@@ -1,0 +1,430 @@
+.title-branding {
+  margin: 0px;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  color: rgb(255, 255, 255);
+}
+
+a {
+  text-decoration: none;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.single-nav {
+  height: 60px;
+  width: 80%;
+  position: sticky;
+  top: 0;
+  box-sizing: border-box;
+  border-radius: 10px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 10px;
+}
+.single-nav-text {
+  font-size: 1.2rem;
+  margin: 0px;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+}
+.planning-single-song-container {
+  height: 60px;
+  width: 40%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: rgb(204, 219, 219);
+  margin: 10px;
+}
+.planning-single-song-titl {
+  padding-left: 15px;
+  color: rgb(77, 77, 77);
+}
+.main-container {
+  height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  overflow: hidden;
+}
+.desktop-left-side {
+  height: 100%;
+  width: 30%;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: grey 0px 0px 5px 5px;
+}
+.branding-title {
+  height: 124px;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.slogon-branding {
+  margin: 0px;
+  text-transform: uppercase;
+  font-weight: lighter;
+  letter-spacing: 9px;
+  font-size: 1rem;
+  color: rgb(255, 255, 255);
+}
+.navigation-container {
+  height: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 50px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.division81391 {
+  position: relative;
+  height: 100%;
+  width: 70%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: overlay;
+}
+.vieport-nav {
+  height: 80px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.82);
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.viewport-nav-search {
+  height: 100%;
+  width: 300px;
+  box-sizing: border-box;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.viewport-serarch-input {
+  height: 40px;
+  border-radius: 7px;
+  border: none;
+  color: grey;
+  padding-left: 10px;
+  width: 100%;
+  right: 10px;
+}
+.image55015 {
+  position: absolute;
+  right: 7px;
+}
+.plan-day-date {
+  height: 54px;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+.paragraph40479 {
+  margin: 0px;
+  justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  color: rgb(145, 145, 145);
+  letter-spacing: 2px;
+}
+.division67082 {
+  height: auto;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: center;
+  display: flex;
+  padding-top: 50px;
+  flex-direction: column;
+  align-items: center;
+}
+.pdf-viewer {
+  height: 150px;
+  width: 150px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-image: url("https://static.icecreamapps.com/www/storage/804/select-the-edit-mode-of-icecream-pdf-editor.jpg");
+  box-shadow: 0px 0px 10px;
+}
+.planning-songs-lists {
+  height: auto;
+  width: 70%;
+  box-sizing: border-box;
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.single-row {
+  height: 55px;
+  width: 80%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background: rgba(118, 118, 118, 0.83);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 4px 1px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 10px;
+}
+.text-visulize {
+  color: rgb(255, 255, 255);
+  font-family: Helvetica;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: lighter;
+  line-height: normal;
+  letter-spacing: 2.7px;
+  text-transform: uppercase;
+}
+.pdf-files-title {
+  margin: 0;
+  margin-top: 4px;
+  color: grey;
+}
+.all-pdf-files-container {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+.single-pdf-container {
+  margin: 5px;
+}
+form {
+  width: 80%;
+  margin-top: 30px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="checkbox"],
+input[type="date"],
+input[type="file"],
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+input[type="button"],
+input[type="submit"] {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="button"]:hover,
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+.add-button {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.preparation-fields {
+  display: none;
+}
+
+.container {
+  cursor: pointer;
+}
+
+.container input {
+  display: none;
+}
+
+.container svg {
+  overflow: visible;
+}
+
+.path {
+  fill: none;
+  stroke: #000;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
+  stroke-dasharray: 241 9999999;
+  stroke-dashoffset: 0;
+}
+
+.container input:checked ~ svg .path {
+  stroke-dasharray: 70.5096664428711 9999999;
+  stroke-dashoffset: -262.2723388671875;
+}
+.form {
+  background-color: #15172b;
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 500px;
+  padding: 20px;
+  width: 50%;
+}
+
+.title {
+  color: #eee;
+  font-family: sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  margin-top: 30px;
+}
+
+.subtitle {
+  color: #eee;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.input-container {
+  height: 50px;
+  position: relative;
+  width: 100%;
+}
+
+.ic1 {
+  margin-top: 40px;
+}
+
+.ic2 {
+  margin-top: 30px;
+}
+
+.input {
+  background-color: #303245;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
+}
+
+.cut {
+  background-color: #15172b;
+  border-radius: 10px;
+  height: 20px;
+  left: 20px;
+  position: absolute;
+  top: -20px;
+  transform: translateY(0);
+  transition: transform 200ms;
+  width: 76px;
+}
+
+.cut-short {
+  width: 50px;
+}
+
+.iLabel {
+  color: #65657b;
+  font-family: sans-serif;
+  left: 20px;
+  line-height: 14px;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: 0 50%;
+  transition: transform 200ms, color 200ms;
+  top: 20px;
+}
+
+.input:focus ~ .cut {
+  transform: translateY(8px);
+}
+
+.input:focus ~ .iLabel {
+  transform: translateY(-30px) translateX(10px) scale(0.75);
+}
+
+.input:not(:focus) ~ .iLabel {
+  color: #808097;
+}
+
+.input:focus ~ .iLabel {
+  color: #dc2f55;
+}
+
+.submit {
+  background-color: #08d;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  cursor: pointer;
+  font-size: 18px;
+  height: 50px;
+  margin-top: 38px;
+  text-align: center;
+  width: 100%;
+}
+
+.submit:active {
+  background-color: #06b;
+}
+.login-form-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 5;
+  background: #fff;
+}
