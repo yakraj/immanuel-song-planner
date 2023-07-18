@@ -17,12 +17,12 @@
         <div class="navigation-container">
           <a
             href="index.html"
-            style="background-color: rgb(145, 145, 145);"
+            style="background-color: rgb(145, 145, 145)"
             class="single-nav"
           >
             <p class="single-nav-text">Worship Planning</p>
             <img
-              src="blob:https://generator.yakraj.com/2a91d2d5-b3b8-4ac4-a455-937374d36a00"
+              src="./assects/arrow-icon.png"
               class="nav-arrow-image"
               alt="custom"
             />
@@ -30,11 +30,11 @@
           <a
             href="./worshipdays.html"
             class="single-nav"
-            style="background-color: rgb(145, 145, 145);"
+            style="background-color: rgb(145, 145, 145)"
           >
             <p class="single-nav-text">all worship days</p>
             <img
-              src="blob:https://generator.yakraj.com/2a91d2d5-b3b8-4ac4-a455-937374d36a00"
+              src="./assects/arrow-icon.png"
               class="nav-arrow-image"
               alt="custom"
             />
@@ -42,11 +42,11 @@
           <a
             href="./pdfiles.html"
             class="single-nav"
-            style="background-color: rgb(50, 90, 128);"
+            style="background-color: rgb(50, 90, 128)"
           >
             <p class="single-nav-text">pdf files</p>
             <img
-              src="blob:https://generator.yakraj.com/2a91d2d5-b3b8-4ac4-a455-937374d36a00"
+              src="./assects/arrow-icon.png"
               class="nav-arrow-image"
               alt="custom"
             />
@@ -54,11 +54,11 @@
           <a
             class="single-nav"
             href="./allsongs.html"
-            style="background-color: rgb(145, 145, 145);"
+            style="background-color: rgb(145, 145, 145)"
           >
             <p class="single-nav-text">all songs</p>
             <img
-              src="blob:https://generator.yakraj.com/2a91d2d5-b3b8-4ac4-a455-937374d36a00"
+              src="./assects/arrow-icon.png"
               class="nav-arrow-image"
               alt="custom"
             />
@@ -67,14 +67,22 @@
       </div>
       <div class="division81391">
         <div class="vieport-nav">
-          <h1 class="title-branding">pdf files</h1>
+          <div style="display: flex; justify-self: center; align-items: center">
+            <input onchange="toggleMobileNav()" type="checkbox" id="checkbox" />
+            <label for="checkbox" class="toggle">
+              <div class="bars" id="bar1"></div>
+              <div class="bars" id="bar2"></div>
+              <div class="bars" id="bar3"></div>
+            </label>
+            <h1 class="title-branding">pdf files</h1>
+          </div>
           <div class="viewport-nav-search">
             <input
               type="text"
               class="viewport-serarch-input"
               placeholder="Your Text"
             /><img
-              src="blob:https://generator.yakraj.com/6af2d3de-b5c7-4bec-a429-38bca53e164a"
+              src="./assects/search-icon.png"
               class="image55015"
               alt="custom"
             />
@@ -116,5 +124,6 @@
         </div>
       </div>
     </div>
+    <script src="./script.js"></script>
   </body>
 </html>
