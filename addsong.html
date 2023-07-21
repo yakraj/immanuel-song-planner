@@ -79,59 +79,62 @@
       </div>
       <div class="division81391">
         <!-- this is login page -->
+        <div class="login-form">
+          <div class="main">
+            <input type="checkbox" id="chk" aria-hidden="true" />
 
-        <div class="login-form-container">
-          <div class="form">
-            <div class="title">Welcome</div>
-            <div class="subtitle">
-              Immanuel Church welcomes to admin members
+            <div class="login">
+              <form class="lo-form">
+                <label for="chk" aria-hidden="true">Log in</label>
+                <input
+                  class="input"
+                  type="phone"
+                  name="phone"
+                  placeholder="Phone"
+                  required=""
+                />
+                <input
+                  class="input"
+                  type="password"
+                  name="pswd"
+                  placeholder="Password"
+                  required=""
+                />
+                <button>Log in</button>
+              </form>
             </div>
 
-            <div class="input-container ic1">
-              <input placeholder="" type="text" class="input" id="firstname" />
-              <div class="cut"></div>
-              <label class="iLabel" for="firstname">Username</label>
+            <div class="register">
+              <form class="lo-form">
+                <label for="chk" aria-hidden="true">Register</label>
+                <input
+                  class="input"
+                  type="text"
+                  name="txt"
+                  placeholder="Name"
+                  required=""
+                />
+                <input
+                  class="input"
+                  type="phone"
+                  name="phone"
+                  placeholder="Phone"
+                  required=""
+                />
+                <input
+                  class="input"
+                  type="password"
+                  name="pswd"
+                  placeholder="Password"
+                  required=""
+                />
+                <button>Register</button>
+              </form>
             </div>
-
-            <div class="input-container ic2">
-              <input
-                placeholder=""
-                type="password"
-                class="input"
-                id="lastname"
-              />
-              <div class="cut"></div>
-              <label class="iLabel" for="lastname">Password</label>
-            </div>
-            <button class="submit" type="text">Login</button>
           </div>
         </div>
-
-        <div class="vieport-nav">
-          <div style="display: flex; justify-self: center; align-items: center">
-            <input onchange="toggleMobileNav()" type="checkbox" id="checkbox" />
-            <label for="checkbox" class="toggle">
-              <div class="bars" id="bar1"></div>
-              <div class="bars" id="bar2"></div>
-              <div class="bars" id="bar3"></div>
-            </label>
-            <h1 class="title-branding">worship planning</h1>
-          </div>
-          <div class="viewport-nav-search">
-            <input
-              type="text"
-              class="viewport-serarch-input"
-              placeholder="Your Text"
-            /><img
-              src="./assects/search-icon.png"
-              class="image55015"
-              alt="custom"
-            />
-          </div>
-        </div>
-
         <!-- form starts from here -->
-        <form>
+        <form class="container-form">
           <label for="preparation">It is for Plan Prepare:</label>
 
           <label class="container">
