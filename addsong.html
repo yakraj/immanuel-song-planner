@@ -87,8 +87,10 @@
               <form class="lo-form">
                 <label for="chk" aria-hidden="true">Log in</label>
                 <input
+                  oninput="textOnchange(event,'phone')"
                   class="input"
                   type="phone"
+                  maxlength="10"
                   name="phone"
                   placeholder="Phone"
                   required=""
@@ -96,11 +98,12 @@
                 <input
                   class="input"
                   type="password"
+                  oninput="textOnchange(event,'pass')"
                   name="pswd"
                   placeholder="Password"
                   required=""
                 />
-                <button>Log in</button>
+                <button type="button" onclick="LoginHandler()">Log in</button>
               </form>
             </div>
 
@@ -111,12 +114,15 @@
                   class="input"
                   type="text"
                   name="txt"
+                  oninput="textOnchange(event,'name')"
                   placeholder="Name"
                   required=""
                 />
                 <input
                   class="input"
                   type="phone"
+                  maxlength="10"
+                  oninput="textOnchange(event,'phone')"
                   name="phone"
                   placeholder="Phone"
                   required=""
@@ -124,6 +130,7 @@
                 <input
                   class="input"
                   type="password"
+                  oninput="textOnchange(event,'pass')"
                   name="pswd"
                   placeholder="Password"
                   required=""
@@ -257,5 +264,36 @@
       }
     </script>
     <script src="./script.js"></script>
+
+    <script>
+      let phone;
+      let pass;
+      let name;
+
+      const textOnchange = (e, variableName) => {
+        window[variableName] = e.target.value;
+      };
+
+      const LoginHandler = () => {
+        console.log(window.phone);
+        fetch("https://church-song-planner.vercel.app/login", {
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ phone: window.phone, password: window.pass }),
+        })
+          .then((response) => response.json())
+          .then((data) => console.log(data));
+      };
+      const RegisterHandler = () => {
+        console.log(window.phone);
+        fetch("https://church-song-planner.vercel.app/register", {
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ phone: window.phone, password: window.pass }),
+        })
+          .then((response) => response.json())
+          .then((data) => console.log(data));
+      };
+    </script>
   </body>
 </html>
