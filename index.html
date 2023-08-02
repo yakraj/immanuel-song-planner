@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="./style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Static Template</title>
+    <title>Worship Planning</title>
   </head>
   <body>
     <div class="main-container">
@@ -88,53 +88,50 @@
             </label>
             <h1 class="title-branding">worship planning</h1>
           </div>
-          <div class="viewport-nav-search">
-            <input
-              type="text"
-              class="viewport-serarch-input"
-              placeholder="Your Text"
-            /><img
-              src="./assects/search-icon.png"
-              class="image55015"
-              alt="custom"
-            />
-          </div>
+          
         </div>
         <div class="plan-day-date">
-          <p class="paragraph40479">Date: 15 July 2023</p>
+          <p class="paragraph40479">Date: <strong class = "dateplan"></strong></p>
         </div>
         <div class="division67082">
           <div class="pdf-viewer"></div>
           <div class="planning-songs-lists">
-            <div class="planning-single-song-container">
-              <p class="planning-single-song-titl">
-                Abhram ka pravu ishahak ka pravu
-              </p>
-            </div>
-            <div class="planning-single-song-container">
-              <p class="planning-single-song-titl">
-                Abhram ka pravu ishahak ka pravu
-              </p>
-            </div>
-            <div class="planning-single-song-container">
-              <p class="planning-single-song-titl">
-                Abhram ka pravu ishahak ka pravu
-              </p>
-            </div>
-            <div class="planning-single-song-container">
-              <p class="planning-single-song-titl">
-                Abhram ka pravu ishahak ka pravu
-              </p>
-            </div>
-            <div class="planning-single-song-container">
-              <p class="planning-single-song-titl">
-                Abhram ka pravu ishahak ka pravu
-              </p>
-            </div>
+           
+            
           </div>
         </div>
       </div>
     </div>
     <script src="./script.js"></script>
+    <script src="./loginhandle.js"></script>
+
+      <script>
+const GetworshipDays =() =>{
+fetch(serverURL+"getrecentplan").then(response =>response.json()).then(data=>
+{
+ 
+  const allWorshipContainer = document.querySelector('.planning-songs-lists')
+if(data.length > 0){
+  const dateView = document.querySelector('.dateplan')
+  dateView.innerHTML = data[0].date
+  
+  for(let i =0; i<data[0].plansongs.length; i++){
+    console.log(data)
+     let url = `/songlyrics?song=${data[0].plansongs[i].songid}`.replace(' ' , '%20')
+
+    let tempData = `<a href =${url} class="planning-single-song-container">
+              <p class="planning-single-song-titl">
+              ${data[0].plansongs[i].title}
+              </p>
+            </a>`
+        allWorshipContainer.innerHTML += tempData
+  }
+}
+  
+})
+}
+
+GetworshipDays()
+    </script>
   </body>
 </html>

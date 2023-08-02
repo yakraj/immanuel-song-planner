@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="./style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Static Template</title>
+    <title>Add Plan/Songs</title>
   </head>
   <body>
     <div class="main-container">
@@ -135,13 +135,27 @@
                   placeholder="Password"
                   required=""
                 />
-                <button>Register</button>
+                <button type = 'button' onclick = "RegisterHandler()">Register</button>
               </form>
             </div>
           </div>
         </div>
         <!-- form starts from here -->
-        <form class="container-form">
+        <form class="container-form"> </form>
+      </div>
+    </div>
+    <script src ="./loginhandle.js"></script>
+    <script>
+
+
+// from her i'll open storing data of the user details
+
+
+// until i'm going to use code for store user details
+
+        let songform = document.querySelector('.container-form')
+        let loginform = document.querySelector('.login-form')
+      const replaceform =`  
           <label for="preparation">It is for Plan Prepare:</label>
 
           <label class="container">
@@ -169,36 +183,44 @@
               id="preparation-date"
               name="preparation-date"
             /><br />
-
-            <label for="prepared-file">Prepared File:</label>
-            <input
-              type="file"
-              id="prepared-file"
-              name="prepared-file"
-              accept=".pdf"
-            /><br />
           </div>
 
+          <div class = "plan-songs-list"></div>
           <hr />
+
+
+
           <!-- Divider -->
 
           <h2>Add Songs</h2>
           <div id="song-container">
-            <label for="song-name-hindi">Song Name Hindi:</label>
-            <input
-              type="text"
-              id="song-name-hindi"
-              name="song-name-hindi"
-            /><br />
-
+           
+            <div class="song">
             <label for="song-name-hindi-english"
               >Song Name in Hindi English:</label
             >
             <input
               type="text"
+              oninput = "typeinputChanged(this)"
               id="song-name-hindi-english"
               name="song-name-hindi-english"
             /><br />
+            <div class = 'recomendation-box'>
+              <strong>Already Existing Songs <span>(click to add on plan list)</span></strong>
+              <div class = 'single-songs-container'></div>
+             
+              </div>
+            <label for="song-name-hindi-english"
+              >Youtube video link:</label
+            >
+            <input
+              type="text"
+              oninput = "typeinputChanged(this)"
+              id="song-name-hindi-english"
+              name="youtube-video-url"
+            /><br />
+
+         
 
             <label for="song-type">Song Type:</label>
             <select id="song-type" name="song-type">
@@ -210,7 +232,9 @@
             ><br />
 
             <label for="song-lyrics">Song Lyrics or Chords:</label>
-            <textarea id="song-lyrics" name="song-lyrics"></textarea><br />
+            <textarea oninput = "LyricsTextarea(this)" id="song-lyrics" name="song-lyrics"></textarea><br />
+            <hr/>
+            </div>
           </div>
           <div class="add-button">
             <input
@@ -220,12 +244,13 @@
               id="add-song"
             /><br />
           </div>
-          <input type="submit" value="Submit" />
-        </form>
-      </div>
-    </div>
-    <script>
+          <input type="button" onclick = "submitDataForm()" value="Submit" />
+       `
+
+
       function toggleVisibility() {
+       
+
         var checkBox = document.getElementById("preparation");
         var fields = document.getElementsByClassName("preparation-fields");
         for (var i = 0; i < fields.length; i++) {
@@ -243,10 +268,17 @@
         var songHTML = `
                 <div class="song">
                  
-                    <label for="song-name-hindi">Song Name Hindi:</label>
-                    <input type="text" id="song-name-hindi" name="song-name-hindi"><br>
                     <label for="song-name-hindi-english">Song Name in Hindi English:</label>
                     <input type="text" id="song-name-hindi-english" name="song-name-hindi-english"><br>
+                    <label for="song-name-hindi-english"
+              >Youtube video link:</label
+            >
+            <input
+              type="text"
+              oninput = "typeinputChanged(this)"
+              id="song-name-hindi-english"
+              name="youtube-video-url"
+            /><br />
                     <label for="song-type">Song Type:</label>
                     <select id="song-type" name="song-type">
                         <option value="stuti">Stuti</option>
@@ -256,8 +288,9 @@
                         <option value="priding">Priding</option>
                     </select><br>
                     <label for="song-lyrics">Song Lyrics or Chords:</label>
-                    <textarea id="song-lyrics" name="song-lyrics"></textarea><br>
+                    <textarea oninput = "LyricsTextarea(this)" id="song-lyrics" name="song-lyrics"></textarea><br>
                 </div>
+                <hr/>
             `;
 
         container.innerHTML += songHTML;
@@ -269,31 +302,217 @@
       let phone;
       let pass;
       let name;
-
+      let planSongs = []
       const textOnchange = (e, variableName) => {
         window[variableName] = e.target.value;
       };
 
-      const LoginHandler = () => {
-        console.log(window.phone);
-        fetch("https://church-song-planner.vercel.app/login", {
+ 
+// it is specially desigled for add songs
+
+
+
+
+
+const submitDataForm = () =>{
+  const planChecker = document.getElementById('preparation').checked
+  const planDate = document.getElementById('preparation-date')
+  const planpdf = document.getElementById('prepared-file')
+
+
+
+  const allsongs = document.querySelectorAll('.song')
+let songs = [];
+
+for (let i = 0; i < allsongs.length; i++) {
+    const object = {};
+  const song = allsongs[i];
+  
+  const title = song.querySelector('input[name="song-name-hindi-english"]').value;
+  object.title = title;
+
+  const songtype = song.querySelector('select[name="song-type"]').value;
+  object.songtype = songtype;
+
+  const videourl = song.querySelector('input[name="youtube-video-url"]').value;
+  object.videourl = videourl;
+  
+      object.songby = userdetails.name;
+      const songlyrics = song.querySelector('textarea[name="song-lyrics"]').value;
+  object.lyrics = songlyrics;
+    if(title.length > 2 && songlyrics.length > 2){
+      songs = [...songs,object]
+
+    }else{
+      window.alert('song must have title and lyrics')
+    }
+}
+
+
+// from here we will work with api
+if(planChecker && !songs.length){
+
+     let tempPlanresources = { 
+              date: document.getElementById('preparation-date').value,
+              plansongs: planSongs,
+              planby: userdetails.name
+            }
+    fetch("https://6lccq8-3001.csb.app/addplan", {
           method: "post",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ phone: window.phone, password: window.pass }),
+          body: JSON.stringify({ plan : tempPlanresources }),
         })
-          .then((response) => response.json())
-          .then((data) => console.log(data));
-      };
-      const RegisterHandler = () => {
-        console.log(window.phone);
-        fetch("https://church-song-planner.vercel.app/register", {
+          .then((response) => response.json()).then(plandata => 
+         { window.alert('your Plan is added successfully')
+          return;}
+          )
+  }
+if(planChecker && songs.length>0){
+
+  
+  fetch("https://6lccq8-3001.csb.app/addsongs", {
           method: "post",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ phone: window.phone, password: window.pass }),
+          body: JSON.stringify({ songs : songs }),
         })
           .then((response) => response.json())
-          .then((data) => console.log(data));
-      };
+          .then((data) => {
+            console.log(data)
+            fetch("https://6lccq8-3001.csb.app/addsongs", {
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ songs : songs }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            planSongs = [...planSongs,...data]
+            let tempPlanresources = { 
+              date: document.getElementById('preparation-date').value,
+              plansongs: planSongs,
+              planby: userdetails.name
+            }
+// from here we are going to add for add plansongContainer
+fetch("https://6lccq8-3001.csb.app/addplan", {
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ plan : tempPlanresources }),
+        })
+          .then((response) => response.json()).then(plandata => 
+          window.alert('your plan and songs are added successfully')
+          )
+
+
+            window.alert('your song added successfully')
+          });
+          });
+}else{
+  if(songs.length>0){
+  fetch("https://6lccq8-3001.csb.app/addsongs", {
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ songs : songs }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data)
+            window.alert('your song added successfully')
+          });
+}
+}
+}
+
+function  LyricsTextarea(data){
+
+  data.style.height = 'auto';
+  data.style.height = data.scrollHeight + 'px';
+}
+
+
+const docInput = document.getElementById('prepared-file');
+
+const UploadChange = (event) =>{
+  const file = event.files[0]
+  const formData = new FormData();
+  formData.append('file', file);
+  fetch('https://6lccq8-3001.csb.app/upload', {
+    method: 'POST',
+    body: formData
+  })
+  .then(res => res.json()) 
+  .then(result => {
+    // Handle response
+  })
+}
+
+
+// below code for add recommended songs on planlist
+let recoresults;
+const AddplanSong = (song) =>{
+  let plansongContainer = document.querySelector('.plan-songs-list')
+  plansongContainer.innerHTML = ""
+  const selectedsong = recoresults.find(x => x.songid ===song )
+  let tempobject = {songid: selectedsong.songid, title: selectedsong.title}
+
+  planSongs = [...planSongs,tempobject]
+  console.log(plansongContainer)
+  for(let i = 0; i< planSongs.length; i++){
+    let tempsong = `<div style = "width: auto;" class='single-recomendation'>
+                <p>${planSongs[i].title}</p>
+                </div>`
+    plansongContainer.innerHTML += tempsong
+  }
+}
+
+// here it is for recomendation on typing stop
+
+
+
+
+let typingTimer;
+const doneTypingInterval = 1000; // Time in milfliseconds (1 second)
+
+function typeinputChanged(event) {
+  let reccomendationbox = document.querySelector('.recomendation-box')
+  let recosongsbox = document.querySelector('.single-songs-container')
+  reccomendationbox.style.display = 'none'
+ 
+  clearTimeout(typingTimer);
+  typingTimer = setTimeout(function() {
+
+if(event.value.length>3){
+  fetch('https://6lccq8-3001.csb.app/songreco', {
+    method: 'POST',
+    body: JSON.stringify({keyword: event.value}),
+    headers: { "Content-Type": "application/json" },
+  })
+  .then(res => res.json()) 
+  .then(result => {
+    if(result.length){
+      recoresults = result;
+      reccomendationbox.style.display = 'block'
+      recosongsbox.innerHTML = ''
+      for(let i = 0; i < result.length; i++){
+      
+        let datahtml = `<div onclick ="AddplanSong('${result[i].songid}')" class='single-recomendation'>
+                <p>${result[i].title}</p>
+                </div>`
+                recosongsbox.innerHTML += datahtml
+              }
+
+
+    }
+
+
+  })
+}
+    
+  }, doneTypingInterval);
+}
+
+
+
+
+
     </script>
   </body>
 </html>
