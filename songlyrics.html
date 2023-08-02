@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Lyrics/Chords</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="desktop-left-side">
+        <div class="branding-title">
+          <h1 class="title-branding">Immanuel Prarthana Bhawan</h1>
+          <h1 class="slogon-branding">worship planning</h1>
+        </div>
+        <div class="navigation-container">
+          <a
+            href="index.html"
+            class="single-nav"
+            style="background-color: rgb(145, 145, 145)"
+          >
+            <p class="single-nav-text" >Worship Planning</p>
+            <img
+              src="./assects/arrow-icon.png"
+              class="nav-arrow-image"
+              alt="custom"
+            />
+          </a>
+          <a
+            href="./worshipdays.html"
+            class="single-nav"
+            style="background-color: rgb(145, 145, 145)"
+          >
+            <p class="single-nav-text">all worship days</p>
+            <img
+              src="./assects/arrow-icon.png"
+              class="nav-arrow-image"
+              alt="custom"
+            />
+          </a>
+          <a
+            href="./pdfiles.html"
+            class="single-nav"
+            style="background-color: rgb(145, 145, 145)"
+          >
+            <p class="single-nav-text">pdf files</p>
+            <img
+              src="./assects/arrow-icon.png"
+              class="nav-arrow-image"
+              alt="custom"
+            />
+          </a>
+          <a
+            href="./allsongs.html"
+            class="single-nav"
+            style="background-color: rgb(145, 145, 145)"
+          >
+            <p class="single-nav-text">all songs</p>
+            <img
+              src="./assects/arrow-icon.png"
+              class="nav-arrow-image"
+              alt="custom"
+            />
+          </a>
+          <a
+            href="./addsong.html"
+            class="single-nav"
+            style="background-color: rgb(145, 145, 145)"
+          >
+            <p class="single-nav-text">add plan/song</p>
+            <img
+              src="./assects/arrow-icon.png"
+              class="nav-arrow-image"
+              alt="custom"
+            />
+          </a>
+        </div>
+      </div>
+      <div class="division81391">
+        <div class="vieport-nav">
+          <div style="display: flex; justify-self: center; align-items: center">
+            <input onchange="toggleMobileNav()" type="checkbox" id="checkbox" />
+            <label for="checkbox" class="toggle">
+              <div class="bars" id="bar1"></div>
+              <div class="bars" id="bar2"></div>
+              <div class="bars" id="bar3"></div>
+            </label>
+            <h1 class="title-branding" id = "Nav-title-song">worship planning</h1>
+          </div>
+          
+        </div>
+    
+        <div class = "lyricsContainer">
+            <div class ="chords-provider-container">
+                <button>Chords</button>
+                <p>By : <strong class= "creditgoes"></strong></p>
+            </div>
+
+            <pre class = "songlyrics">
+
+            </pre>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+    <script src="./loginhandle.js"></script>
+
+
+    <script>
+        // Function to get URL parameters
+        function getURLParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+        
+        // Example usage
+        const songName = getURLParameter('song');
+        const LyricsPreview = document.querySelector('.songlyrics')
+        const CreditC = document.querySelector('.creditgoes')
+        const NavTitle = document.querySelector('#Nav-title-song')
+        console.log(NavTitle)
+        fetch(serverURL+"getsong",{
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ songid : songName }),
+        }).then(response =>response.json()).then(data=>
+{
+ 
+    if(data){
+        LyricsPreview.innerHTML = data[0].lyrics
+        CreditC.innerHTML = data[0].songby
+        NavTitle.innerHTML = data[0].title
+
+    }else{
+        window.alert('unable to find lyrics of relative song.')
+    }
+
+})
+    </script>
+      <script>
+
+
+// const GetworshipDays =() =>{
+// fetch(serverURL+"getrecentplan").then(response =>response.json()).then(data=>
+// {
+//   const allWorshipContainer = document.querySelector('.planning-songs-lists')
+// if(data.length > 0){
+  
+//   for(let i =0; i<data[0].plansongs.length; i++){
+//     let tempData = `<a href = "google.com" class="planning-single-song-container">
+//               <p class="planning-single-song-titl">
+//               ${data[0].plansongs[i].title}
+//               </p>
+//             </a>`
+//         allWorshipContainer.innerHTML += tempData
+//   }
+// }
+  
+// })
+// }
+
+// GetworshipDays()
+    </script>
+  </body>
+</html>

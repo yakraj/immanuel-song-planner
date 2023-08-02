@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="./style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Static Template</title>
+    <title>All songs</title>
   </head>
   <body>
     <div class="main-container">
@@ -79,6 +79,7 @@
           <div class="viewport-nav-search">
             <input
               type="text"
+              oninput = "typeinputChanged(this)"
               class="viewport-serarch-input"
               placeholder="Your Text"
             /><img
@@ -86,46 +87,89 @@
               class="image55015"
               alt="custom"
             />
+<!-- search results will appear here -->
+<div class = "search-results">
+
+</div>
+<!-- search results will be until here -->
+
           </div>
         </div>
-        <div class="single-row">
-          <p class="text-visulize">prabhu ka naam kitna pyara hai</p>
-          <img src="./assects/arrow-icon.png" class="image76825" alt="custom" />
-        </div>
-        <div class="single-row">
-          <p class="text-visulize">prabhu ka naam kitna pyara hai</p>
-          <img src="./assects/arrow-icon.png" class="image76825" alt="custom" />
-        </div>
-        <div class="single-row">
-          <p class="text-visulize">prabhu ka naam kitna pyara hai</p>
-          <img src="./assects/arrow-icon.png" class="image76825" alt="custom" />
-        </div>
-        <div class="single-row">
-          <p class="text-visulize">prabhu ka naam kitna pyara hai</p>
-          <img src="./assects/arrow-icon.png" class="image76825" alt="custom" />
-        </div>
-        <div class="single-row">
-          <p class="text-visulize">prabhu ka naam kitna pyara hai</p>
-          <img src="./assects/arrow-icon.png" class="image76825" alt="custom" />
-        </div>
-        <div class="single-row">
-          <p class="text-visulize">prabhu ka naam kitna pyara hai</p>
-          <img src="./assects/arrow-icon.png" class="image76825" alt="custom" />
-        </div>
-        <div class="single-row">
-          <p class="text-visulize">prabhu ka naam kitna pyara hai</p>
-          <img src="./assects/arrow-icon.png" class="image76825" alt="custom" />
-        </div>
-        <div class="single-row">
-          <p class="text-visulize">prabhu ka naam kitna pyara hai</p>
-          <img src="./assects/arrow-icon.png" class="image76825" alt="custom" />
-        </div>
-        <div class="single-row">
-          <p class="text-visulize">prabhu ka naam kitna pyara hai</p>
-          <img src="./assects/arrow-icon.png" class="image76825" alt="custom" />
-        </div>
+        <div class ="allsongContainer">
+        
+       
+      </div>
+      
+      
       </div>
     </div>
     <script src="./script.js"></script>
+    <script src="./loginhandle.js"></script>
+    <script>
+const GetAllSongs =() =>{
+  console.log('it must run now')
+fetch(serverURL+"getsongs").then(response =>response.json()).then(data=>
+
+{
+  const allSongContainer = document.querySelector('.allsongContainer')
+if(data.length > 0){
+  for(let i =0; i<data.length; i++){
+    let url = `/songlyrics?song=${data[i].songid}`.replace(' ' , '%20')
+    let tempData = `<a href =${url}  class="single-row">
+          <p class="text-visulize">${data[i].title}</p>
+          <img src="./assects/arrow-icon.png" class="image76825" alt="custom" />
+        </a>`
+        allSongContainer.innerHTML += tempData
+  }
+}
+  
+})
+}
+
+GetAllSongs()
+
+
+// this script for search recomendation
+let typingTimer;
+const doneTypingInterval = 500; // Time in milfliseconds (0.5 second)
+
+function typeinputChanged(event) {
+  let recosongsbox = document.querySelector('.search-results')
+  recosongsbox.style.display = 'none'
+ 
+  clearTimeout(typingTimer);
+  typingTimer = setTimeout(function() {
+
+if(event.value.length>3){
+  fetch('https://6lccq8-3001.csb.app/songreco', {
+    method: 'POST',
+    body: JSON.stringify({keyword: event.value}),
+    headers: { "Content-Type": "application/json" },
+  })
+  .then(res => res.json()) 
+  .then(result => {
+    if(result.length){
+      recoresults = result;
+      recosongsbox.style.display = 'block'
+      recosongsbox.innerHTML = ''
+      for(let i = 0; i < result.length; i++){
+       let url = `/songlyrics?song=${result[i].songid}`.replace(' ' , '%20')
+        let datahtml = `<a href =${url} class = "search-result-single-tab">
+                ${result[i].title}
+                </a>`
+                recosongsbox.innerHTML += datahtml
+              }
+
+
+    }
+
+
+  })
+}
+    
+  }, doneTypingInterval);
+}
+
+    </script>
   </body>
 </html>
