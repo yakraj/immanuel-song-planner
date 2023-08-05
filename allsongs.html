@@ -114,7 +114,7 @@ fetch(serverURL+"getsongs").then(response =>response.json()).then(data=>
   const allSongContainer = document.querySelector('.allsongContainer')
 if(data.length > 0){
   for(let i =0; i<data.length; i++){
-    let url = `/songlyrics?song=${data[i].songid}`.replace(' ' , '%20')
+    let url = `/songlyrics.html?song=${data[i].songid}`.replace(' ' , '%20')
     let tempData = `<a href =${url}  class="single-row">
           <p class="text-visulize">${data[i].title}</p>
           <img src="./assects/arrow-icon.png" class="image76825" alt="custom" />
@@ -153,7 +153,7 @@ if(event.value.length>3){
       recosongsbox.style.display = 'block'
       recosongsbox.innerHTML = ''
       for(let i = 0; i < result.length; i++){
-       let url = `/songlyrics?song=${result[i].songid}`.replace(' ' , '%20')
+       let url = `/songlyrics.html?song=${result[i].songid}`.replace(' ' , '%20')
         let datahtml = `<a href =${url} class = "search-result-single-tab">
                 ${result[i].title}
                 </a>`
