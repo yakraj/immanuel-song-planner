@@ -1,7 +1,7 @@
 let userdetails;
-const serverURL = "https://6lccq8-3001.csb.app/";
+const serverURL = "https://server.immanuelchoir.yakraj.com/";
 const LoginHandler = () => {
-  fetch("https://6lccq8-3001.csb.app/login", {
+  fetch(serverURL + "login", {
     method: "post",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ phone: window.phone, password: window.pass }),
@@ -17,7 +17,7 @@ const LoginHandler = () => {
     });
 };
 const RegisterHandler = () => {
-  fetch("https://6lccq8-3001.csb.app/register", {
+  fetch(serverURL + "register", {
     method: "post",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

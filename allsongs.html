@@ -141,7 +141,7 @@ function typeinputChanged(event) {
   typingTimer = setTimeout(function() {
 
 if(event.value.length>3){
-  fetch('https://6lccq8-3001.csb.app/songreco', {
+  fetch(serverURL+'songreco', {
     method: 'POST',
     body: JSON.stringify({keyword: event.value}),
     headers: { "Content-Type": "application/json" },
