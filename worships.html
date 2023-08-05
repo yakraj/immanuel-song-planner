@@ -140,7 +140,7 @@ if(data.length > 0){
 
   for(let i =0; i<data[0].plansongs.length; i++){
     console.log(data)
-     let url = `/songlyrics?song=${data[0].plansongs[i].songid}`.replace(' ' , '%20')
+     let url = `/songlyrics.html?song=${data[0].plansongs[i].songid}`.replace(' ' , '%20')
 
     let tempData = `<a href =${url} class="planning-single-song-container">
               <p class="planning-single-song-titl">

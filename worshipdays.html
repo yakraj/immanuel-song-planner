@@ -112,7 +112,7 @@ fetch(serverURL+"getplans").then(response =>response.json()).then(data=>
   const allWorshipContainer = document.querySelector('.worship-days-container')
 if(data.length > 0){
   for(let i =0; i<data.length; i++){
-    let url = `/worships?plan=${data[i].planid}`.replace(' ' , '%20')
+    let url = `/worships.html?plan=${data[i].planid}`.replace(' ' , '%20')
     let tempData = `<a href =${url}  class="single-row">
           <p class="text-visulize">${data[i].date}</p>
           <img src="./assects/arrow-icon.png" class="image76825" alt="custom" />
@@ -154,7 +154,7 @@ if(event.value.length>1){
       recosongsbox.style.display = 'block'
       recosongsbox.innerHTML = ''
       for(let i = 0; i < result.length; i++){
-        let url = `/worships?plan=${result[i].planid}`.replace(' ' , '%20')
+        let url = `/worships.html?plan=${result[i].planid}`.replace(' ' , '%20')
         let datahtml = `<a href =${url} class = "search-result-single-tab">
                 ${result[i].date}
                 </a>`
